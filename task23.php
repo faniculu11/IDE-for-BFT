@@ -29,7 +29,7 @@ include("includes/config.php") ;
  if(isset($_POST["reset"]) )  
  {
 	 
-	  mysqli_query($conn,"DELETE FROM Gauteng_Patients"); 
+ mysqli_query($conn,"DELETE FROM Gauteng_Patients"); 
 	 
 	 $in="INSERT INTO `Gauteng_Patients` (`PatientID`, `CodeName`, `AgeGroup`, `OtherDiseases`, `Suburb`) VALUES
 (1, 'AX', '20-30', 'NO', 'Daveyton'),
@@ -41,6 +41,9 @@ include("includes/config.php") ;
 (7, 'WE', '40-50', 'No', 'Khutsong'),
 (8, 'TU', '20-30', '	No', 'Khutsong'),
 (9, 'QA', '60-70', 'No', 'Daytwon'),
+(21, 'BX', '20-30', 'No', 'Bryanston'),
+(23, 'BZ', '20-30', 'No', 'Bryanston'),
+(22, 'BY', '40-50', 'No', 'Bryanston'),
 (10, 'MU', '30-40', 'No', 'Daytwon')";
 
  mysqli_query($conn,$in); 
@@ -50,6 +53,7 @@ include("includes/config.php") ;
  $in2 = "INSERT INTO `Gauteng_Deaths` (`PatientID`, `BloodType`) VALUES
 (1, 'AB'),
 (4, 'O'),
+(22, 'AB'),
 (8, 'B')";
 
  mysqli_query($conn,$in2); 
@@ -62,7 +66,9 @@ include("includes/config.php") ;
 (5, 'B', 'No'),
 (6, 'A', 'Yes'),
 (7, 'O', 'No'),
-(9, 'AB', 'Yes'),
+(21, 'B', 'No'),
+
+(23, 'O', 'Yes'),
 (10, 'O', 'Yes')";
  mysqli_query($conn,$in3); 
  

@@ -13,6 +13,17 @@
 include("includes/config.php") ;	
 
 
+
+if(isset($_POST["next"]) )  
+ {
+
+ echo "<script>
+window.location.replace('task18.php');
+	  </script>
+	  ";
+
+ }
+
 if(isset($_POST["back"]) )  
  {
 
@@ -90,7 +101,7 @@ window.location.replace('task16.php');
 <button class="w3-btn w3-left " onclick="myFunction()"><img class= "w3-center" width = "95%"  src="https://img.icons8.com/color/48/000000/light.png"/></button>
 	<br><br><br>
 
-	<h3 class= "w3-center">Task 1.3</h3>
+	<h3 class= "w3-center">Task 1.3 b</h3>
 	<?php 
 	
 	 if(isset($_POST["submit"]) )  
@@ -232,29 +243,88 @@ alert('Oops your aunt must have asked someone to insert that record already. Pre
 
 
 
-if (confirm('Well done!!, Click okay to proceed, Press a button Okay to proceed! ')) {
+if (confirm('Well done!!, Click okay to proceed or click Cancel to see your database results ')) {
   window.location.replace('task18.php');
   } else {
-window.location.replace('task17.php');
+
   }
 
     
 	  </script>
 	  ";
 	
-}
- 	 
+
+		
+?>
+	
+	
+	
+	
+	
+
+
+
+<button  class='w3-btn w3-center w3-green w3-text-black ' id='myBtn'>Show results</button>
+
+
+<div id='myModal' class='modal'>
+
+
+  <div class='modal-content'>
+    <span class="close">&times;</span>
+
+<?php  	
+ $results = mysqli_query($conn, "SELECT * FROM Gauteng_Treatments");
+ 
+  ?>
+
+<form method= post>
+ <button class='w3-btn w3-center w3-green w3-text-black ' name= "next" >Next question</button>
+ 
+ </form>
+<table   class="w3-table-all w3-centered w3-striped">
+  <tr>
+      <th>PatientID</th>
+	   <th>BloodType</th>
+	    <th>RecoveringStatus</th>
+     
+	   </tr>
+	<?php while ($row = mysqli_fetch_array($results)) { ?>
+	<tr>
+      <td><?php echo $row['PatientID']; ?></td>
+	   <td><?php echo $row['BloodType']; ?></td>
+	      <td><?php echo $row['RecoveringStatus']; ?></td>
+	   
+	    </tr>
+	
+	
+	
+   <?php } ?>
+ 
+    </table>
+	
+	
+  </div>
+
+</div>	
+
+
+
+	
+<?php } ?>
+ 
+<?php } 
  }
 	
 	
- } 
+	
 	?>
 	
 	
 
      <p class= "w3-center">
 	
-	B. Write the insert SQL code to insert the Bryanston Treatments table data into the Gauteng_Treatments table. Start with PatientID 23. <br>
+	 Write the insert SQL code to insert the Bryanston Treatments table data into the Gauteng_Treatments table. Start with PatientID 23. <br>
 
 
 </p>
@@ -387,6 +457,75 @@ function myFunction() {
 
 function myFunction1() {
   alert("INSERT INTO Gauteng_Treatments (PatientID,BloodType,RecoveringStatus) VALUES (23,'O','No')");
+}
+</script>
+
+<style>
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }
 </script>
  

@@ -13,20 +13,8 @@
 include("includes/config.php") ;	
 
 
-if(isset($_POST["back"]) )  
- {
 
- echo "<script>
-window.location.replace('task32.php');
-	  </script>
-	  ";
-
- }
- 
- if(isset($_POST["reset"]) )  
- {
-	 
-	  mysqli_query($conn,"DELETE FROM Gauteng_Patients"); 
+ mysqli_query($conn,"DELETE FROM Gauteng_Patients"); 
 	 
 	 $in="INSERT INTO `Gauteng_Patients` (`PatientID`, `CodeName`, `AgeGroup`, `OtherDiseases`, `Suburb`) VALUES
 (1, 'AX', '20-30', 'NO', 'Daveyton'),
@@ -64,8 +52,63 @@ window.location.replace('task32.php');
 (6, 'A', 'Yes'),
 (7, 'O', 'No'),
 (21, 'B', 'No'),
-(21, 'B', 'No'),
+
 (23, 'O', 'Yes'),
+(10, 'O', 'Yes')";
+ mysqli_query($conn,$in3); 
+
+
+
+
+if(isset($_POST["back"]) )  
+ {
+
+ echo "<script>
+window.location.replace('task31.php');
+	  </script>
+	  ";
+
+ }
+ 
+ if(isset($_POST["reset"]) )  
+ {
+	 
+	  mysqli_query($conn,"DELETE FROM Gauteng_Patients"); 
+	 
+	 $in="INSERT INTO `Gauteng_Patients` (`PatientID`, `CodeName`, `AgeGroup`, `OtherDiseases`, `Suburb`) VALUES
+(1, 'AX', '20-30', 'NO', 'Daveyton'),
+(2, 'B', '50-60', 'NO', 'Germiston'),
+(3, 'AC', '10-20', 'Yes', 'Edenvale'),
+(4, 'A', '70-80', 'No', 'Katlehong'),
+(5, 'CT', '20-30', 'No', 'Rayton'),
+(6, 'YX', '50-60', 'No', 'Westonaria'),
+(7, 'WE', '40-50', 'No', 'Khutsong'),
+(8, 'TU', '20-30', '	No', 'Khutsong'),
+(9, 'QA', '60-70', 'No', 'Daytwon'),
+
+(10, 'MU', '30-40', 'No', 'Daytwon')";
+
+ mysqli_query($conn,$in); 
+ 
+   mysqli_query($conn,"DELETE FROM Gauteng_Deaths"); 
+   
+ $in2 = "INSERT INTO `Gauteng_Deaths` (`PatientID`, `BloodType`) VALUES
+(1, 'AB'),
+(4, 'O'),
+
+(8, 'B')";
+
+ mysqli_query($conn,$in2); 
+ 
+  mysqli_query($conn,"DELETE FROM Gauteng_Treatments"); 
+  
+  $in3 = "INSERT INTO `Gauteng_Treatments` (`PatientID`, `BloodType`, `RecoveringStatus`) VALUES
+(2, 'AB', 'Yes'),
+(3, 'O', 'No'),
+(5, 'B', 'No'),
+(6, 'A', 'Yes'),
+(7, 'O', 'No'),
+
 (10, 'O', 'Yes')";
  mysqli_query($conn,$in3); 
  
@@ -86,7 +129,7 @@ window.location.replace('task32.php');
  <div class= "w3-center">
 
 <form method= post>
- <button class="w3-btn w3-brown" name= "reset">Populate database with data from task 1</button>
+
  <button class="w3-btn w3-brown" name= "back">Previous Question</button>
 
 
@@ -94,7 +137,6 @@ window.location.replace('task32.php');
 </div>
     <div class="w3-container  w3-half w3-padding">
 
-<button class="w3-btn w3-left " onclick="myFunction()"><img class= "w3-center" width = "95%"  src="https://img.icons8.com/color/48/000000/light.png"/></button>
 	<br><br><br>
 
 	<h3 class= "w3-center">Task 3.2</h3>
@@ -106,7 +148,7 @@ window.location.replace('task32.php');
  
 $keywords1 = 'INSERT';
     $keywords = 'Gauteng_Deaths ';
-	$value1 = '22';
+	$value1 = '21';
     $value2 = 'B';
 	
 	
@@ -129,7 +171,7 @@ else if ( !preg_match("/{$value1}/i", $_POST['ab']) === true   ){
 	
 	 echo "<script>
  	
-alert('Wrong value for PatientID, the correct PatientID value is 22 ');
+alert('Wrong value for PatientID, the correct PatientID value is 21 ');
     
 	  </script>
 	  ";
@@ -238,22 +280,69 @@ alert('Oops your aunt must have asked someone to insert that record already. Pre
 
 
 
-if (confirm('Well done!!, Click okay to proceed, Press a button Okay to proceed! ')) {
+if (confirm('Well done!!, Click okay to proceed or click Cancel to see your database results')) {
   window.location.replace('task33.php');
   } else {
-window.location.replace('task32.php');
+
   }
 
     
 	  </script>
 	  ";
+?>
+
+<button  class='w3-btn w3-center w3-green w3-text-black ' id='myBtn'>Show results</button>
+
+
+<div id='myModal' class='modal'>
+
+
+  <div class='modal-content'>
+    <span class="close">&times;</span>
+
+<?php  	
+ $results = mysqli_query($conn, "SELECT * FROM Gauteng_Deaths");
+ 
+  ?>
+
+<form method= post>
+ <button class='w3-btn w3-center w3-green w3-text-black ' name= "next" >Next question</button>
+ 
+ </form>
+<table   class="w3-table-all w3-centered w3-striped">
+  <tr>
+      <th>PatientID</th>
+      <th>BloodType</th>
+	    <th>RecoveringStatus</th>
+	   </tr>
+	<?php while ($row = mysqli_fetch_array($results)) { ?>
+	<tr>
+      <td><?php echo $row['PatientID']; ?></td>
+	   <td><?php echo $row['BloodType']; ?></td>
+	 
+	    </tr>
 	
-}
- 	 
+	
+	
+   <?php } ?>
+ 
+    </table>
+	
+	
+  </div>
+
+</div>	
+
+
+
+	
+<?php } ?>
+ 
+<?php } 
  }
 	
 	
-}	
+	
 	?>
 
 
@@ -282,7 +371,7 @@ window.location.replace('task32.php');
 
 <div class="w3-container w3-half w3-padding" >
 
-  <p class= "w3-center">Click any of the buttons below to see the table contents”</p>
+  <p class= "w3-center">Click any of the buttons below to see the table contents</p>
  <br>
 
 <form method="post" class="w3-container w3-center">
@@ -369,7 +458,7 @@ window.location.replace('task32.php');
 	<tr>
       <td><?php echo $row['PatientID']; ?></td>
 	   <td><?php echo $row['BloodType']; ?></td>
-	    <td><?php echo $row['RecoveringStatus']; ?></td>
+	
 	    </tr>
 	
    <?php } ?>
@@ -387,6 +476,75 @@ mysqli_close($conn);
 
 </body>
 
+
+<style>
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 <script>
 function myFunction() {
   alert("Remember all letters or non-numerical values should have 'quotations' ('x') around them. Only a number by itself should be without 'quotations'. So an example: VALUES (22, 'VW', '20-40', 'YES', 'Sandton') ");

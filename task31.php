@@ -13,48 +13,7 @@
 include("includes/config.php") ;	
 
 
-
- 
- 
- 
-if(isset($_POST["next"]) )  
- {
-
- echo "<script>
-window.location.replace('task32.php');
-	  </script>
-	  ";
-
- }
- 
- 
-if(isset($_POST["next"]) )  
- {
-
- echo "<script>
-window.location.replace('task34.php');
-	  </script>
-	  ";
-
- }
- 
-	
-
-
-if(isset($_POST["back"]) )  
- {
-
- echo "<script>
-window.location.replace('task32.php');
-	  </script>
-	  ";
-
- }
- 
- if(isset($_POST["reset"]) )  
- {
-	 
-	  mysqli_query($conn,"DELETE FROM Gauteng_Patients"); 
+ mysqli_query($conn,"DELETE FROM Gauteng_Patients"); 
 	 
 	 $in="INSERT INTO `Gauteng_Patients` (`PatientID`, `CodeName`, `AgeGroup`, `OtherDiseases`, `Suburb`) VALUES
 (1, 'AX', '20-30', 'NO', 'Daveyton'),
@@ -92,8 +51,86 @@ window.location.replace('task32.php');
 (6, 'A', 'Yes'),
 (7, 'O', 'No'),
 (21, 'B', 'No'),
-(21, 'B', 'No'),
+
 (23, 'O', 'Yes'),
+(10, 'O', 'Yes')";
+ mysqli_query($conn,$in3); 
+ 
+ 
+ 
+if(isset($_POST["next"]) )  
+ {
+
+ echo "<script>
+window.location.replace('task32.php');
+	  </script>
+	  ";
+
+ }
+ 
+ 
+if(isset($_POST["next"]) )  
+ {
+
+ echo "<script>
+window.location.replace('task32.php');
+	  </script>
+	  ";
+
+ }
+ 
+	
+
+
+if(isset($_POST["back"]) )  
+ {
+
+ echo "<script>
+window.location.replace('task31.php');
+	  </script>
+	  ";
+
+ }
+ 
+ if(isset($_POST["reset"]) )  
+ {
+	 
+	  mysqli_query($conn,"DELETE FROM Gauteng_Patients"); 
+	 
+	 $in="INSERT INTO `Gauteng_Patients` (`PatientID`, `CodeName`, `AgeGroup`, `OtherDiseases`, `Suburb`) VALUES
+(1, 'AX', '20-30', 'NO', 'Daveyton'),
+(2, 'B', '50-60', 'NO', 'Germiston'),
+(3, 'AC', '10-20', 'Yes', 'Edenvale'),
+(4, 'A', '70-80', 'No', 'Katlehong'),
+(5, 'CT', '20-30', 'No', 'Rayton'),
+(6, 'YX', '50-60', 'No', 'Westonaria'),
+(7, 'WE', '40-50', 'No', 'Khutsong'),
+(8, 'TU', '20-30', '	No', 'Khutsong'),
+(9, 'QA', '60-70', 'No', 'Daytwon'),
+
+(10, 'MU', '30-40', 'No', 'Daytwon')";
+
+ mysqli_query($conn,$in); 
+ 
+   mysqli_query($conn,"DELETE FROM Gauteng_Deaths"); 
+   
+ $in2 = "INSERT INTO `Gauteng_Deaths` (`PatientID`, `BloodType`) VALUES
+(1, 'AB'),
+(4, 'O'),
+
+(8, 'B')";
+
+ mysqli_query($conn,$in2); 
+ 
+  mysqli_query($conn,"DELETE FROM Gauteng_Treatments"); 
+  
+  $in3 = "INSERT INTO `Gauteng_Treatments` (`PatientID`, `BloodType`, `RecoveringStatus`) VALUES
+(2, 'AB', 'Yes'),
+(3, 'O', 'No'),
+(5, 'B', 'No'),
+(6, 'A', 'Yes'),
+(7, 'O', 'No'),
+
 (10, 'O', 'Yes')";
  mysqli_query($conn,$in3); 
  
@@ -113,7 +150,7 @@ window.location.replace('task32.php');
  <div class= "w3-center">
 
 <form method= post>
- <button class="w3-btn w3-brown" name= "reset">Populate database with data from task 1</button>
+
 
 
 
@@ -122,7 +159,7 @@ window.location.replace('task32.php');
     <div class="w3-container  w3-half w3-padding">
 
 
-<button class="w3-btn w3-left " onclick="myFunction()"><img class= "w3-center" width = "95%"  src="https://img.icons8.com/color/48/000000/light.png"/></button>
+
 	<br><br><br>
 	
 	<h3 class= "w3-center">Task 3.1</h3>
@@ -237,10 +274,11 @@ alert('Invalid SQL Query');
 
 echo "<script>
 	
-if (confirm('Well done!!, Click okay to proceed to see your results, then click the show results button. Click Cancel to move to the next question  ')) {
+if (confirm('Well done!!, Click okay to proceed or click Cancel to see your database results')) {
 
+window.location.replace('task32.php');
   } else {
-window.location.replace('task33.php');
+
   }
 
     
@@ -342,7 +380,7 @@ window.location.replace('task33.php');
 
 <div class="w3-container w3-half w3-padding" >
 
-  <p class= "w3-center">Click any of the buttons below to see the table contents”</p>
+  <p class= "w3-center">Click any of the buttons below to see the table contents</p>
  <br>
 
 <form method="post" class="w3-container w3-center">
