@@ -280,19 +280,22 @@ alert('Oops your aunt must have asked someone to insert that record already. Pre
 
 
 
-if (confirm('Well done!!, Click okay to proceed or click Cancel to see your database results')) {
-  window.location.replace('task33.php');
-  } else {
+if (alert('Well done!!')) {
 
-  }
+  } 
 
     
 	  </script>
 	  ";
 ?>
 
-<button  class='w3-btn w3-center w3-green w3-text-black ' id='myBtn'>Show results</button>
+<button  class='w3-btn w3-left w3-green w3-text-black ' id='myBtn'>Show results</button>
 
+<form method= post>
+
+<button class='w3-btn w3-right w3-green w3-text-black ' name= "next" >Task 3.3-></button>
+
+</form>
 
 <div id='myModal' class='modal'>
 
@@ -345,6 +348,7 @@ if (confirm('Well done!!, Click okay to proceed or click Cancel to see your data
 	
 	?>
 
+<br><br>
 
 
      <p class= "w3-center">
@@ -551,7 +555,7 @@ function myFunction() {
 }
 
 function myFunction1() {
-  alert("INSERT INTO Gauteng_Deaths (PatientID,BloodType) VALUES (22,'AB')");
+ alert("INSERT INTO Gauteng_Deaths VALUES (21, 'B')");
 }
 </script>
  

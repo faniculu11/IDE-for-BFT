@@ -239,7 +239,7 @@ else if (preg_match("/{$value3}/i", $_POST['ab']) === true  ){
 	
 		 echo "<script>
  	
-alert('Wrong value for PatientID. the correct PatientID value is 21 ');
+alert('Wrong value for PatientID. the correct PatientID value is 23 ');
     
 	  </script>
 	  ";
@@ -292,11 +292,9 @@ alert('Invalid SQL Query');
 
 echo "<script>
 	
-if (confirm('Well done!!, Click okay to proceed or click Cancel to see your database results ')) {
+if (alert('Well done!! ')) {
 
-  } else {
-
-  }
+  } 
 
     
 	  </script>
@@ -313,8 +311,11 @@ if (confirm('Well done!!, Click okay to proceed or click Cancel to see your data
 
 
 
-<button  class='w3-btn w3-center w3-green w3-text-black ' id='myBtn'>Show results</button>
+<button  class='w3-btn w3-left w3-green w3-text-black ' id='myBtn'>Show results</button>
+<form method= post>
+<button class='w3-btn w3-right w3-green w3-text-black ' name= "next" >Task 3.4-></button>
 
+</form>
 
 <div id='myModal' class='modal'>
 
@@ -369,11 +370,11 @@ if (confirm('Well done!!, Click okay to proceed or click Cancel to see your data
 	
 
 
-
+<br><br>
 
      <p class= "w3-center">
 	
-	C.Update the Recovering Status of all the Bryanston patients with Blood Type 0 to YES in the Gauteng_Treatments Table (Hint: use PatientID as your “WHERE” condition.
+Update the Recovering Status of all the Bryanston patients with Blood Type 0 to YES in the Gauteng_Treatments Table (Hint: use PatientID as your “WHERE” condition.
 
 
 
@@ -511,7 +512,7 @@ function myFunction() {
 }
 
 function myFunction1() {
-  alert("INSERT INTO Gauteng_Patients (PatientID,CodeName,AgeGroup,OtherDiseases,Suburb) VALUES (22,'BY','40-50','No','Bryanston')");
+   alert("UPDATE Gauteng_Treatments SET RecoveringStatus = 'YES' WHERE PatientID = 23");
 }
 </script>
 

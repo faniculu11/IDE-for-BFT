@@ -254,11 +254,9 @@ alert('Oops your aunt must have asked someone to insert that record already. Pre
 
 
 
-if (confirm('Well done!!, Click okay to proceed or click Cancel to see your database results')) {
-  window.location.replace('task12.php');
-  } else {
-
-  }
+if (alert('Well done!!')) {
+ 
+  } 
 
     
 	  </script>
@@ -273,8 +271,13 @@ if (confirm('Well done!!, Click okay to proceed or click Cancel to see your data
 
 
 
-<button  class='w3-btn w3-center w3-green w3-text-black ' id='myBtn'>Show results</button>
+<button  class='w3-btn w3-left w3-green w3-text-black ' id='myBtn'>Show results</button>
 
+<form method= post>
+
+<button class='w3-btn w3-right w3-green w3-text-black ' name= "next" >Task 1.1.b-></button>
+
+</form>
 
 <div id='myModal' class='modal'>
 
@@ -331,7 +334,7 @@ if (confirm('Well done!!, Click okay to proceed or click Cancel to see your data
 	
 	?>
 
-
+<br><br>
 
      <p class= "w3-center">
 	
@@ -357,7 +360,7 @@ if (confirm('Well done!!, Click okay to proceed or click Cancel to see your data
 
 <div class="w3-container w3-half w3-padding" >
 
-  <p class= "w3-center">Click any of the buttons below to see the table contents”</p>
+  <p class= "w3-center">Click any of the buttons below to see the table contents</p>
  <br>
 
 <form method="post" class="w3-container w3-center">

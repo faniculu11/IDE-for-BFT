@@ -269,13 +269,11 @@ alert('Invalid SQL Query');
 
 echo "<script>
 	
-if (confirm('Well done!!, Click okay to proceed or click Cancel to see your database results')) {
+if (alert('Well done!!')) {
 
-window.location.replace('task22.php'); 
 
- } else {
 
-  }
+ } 
 
     
 	  </script>
@@ -292,8 +290,13 @@ window.location.replace('task22.php');
 
 
 
-<button  class='w3-btn w3-center w3-green w3-text-black ' id='myBtn'>Show results</button>
 
+  <button  class='w3-btn w3-left w3-green w3-text-black ' id='myBtn'>Show results</button>
+<form method= post>
+
+ <button class='w3-btn w3-right w3-green w3-text-black ' name= "next" >Task 2.2-></button>
+ 
+ </form>
 
 <div id='myModal' class='modal'>
 
@@ -348,6 +351,9 @@ window.location.replace('task22.php');
 	
 
 
+
+<br>
+<br>
 
 
      <p class= "w3-center">
@@ -487,8 +493,7 @@ function myFunction() {
 }
 
 function myFunction1() {
- alert("SELECT * FROM Gauteng_Treatments
-  WHERE BloodType= 'O' ");
+ alert("SELECT * FROM Gauteng_Treatments WHERE BloodType= 'O' ");
 }
 </script>
 

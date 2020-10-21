@@ -274,12 +274,10 @@ alert('Invalid SQL Query');
 
 echo "<script>
 	
-if (confirm('Well done!!, Click okay to proceed or click Cancel to see your database results')) {
+if (alert('Well done!!')) {
 
-window.location.replace('task32.php');
-  } else {
 
-  }
+  } 
 
     
 	  </script>
@@ -295,8 +293,13 @@ window.location.replace('task32.php');
 	
 
 
+  <button  class='w3-btn w3-left w3-green w3-text-black ' id='myBtn'>Show results</button>
 
-<button  class='w3-btn w3-center w3-green w3-text-black ' id='myBtn'>Show results</button>
+  <form method= post>
+
+ <button class='w3-btn w3-right w3-green w3-text-black ' name= "next" >Task 3.2-></button>
+ 
+ </form>
 
 
 <div id='myModal' class='modal'>
@@ -351,12 +354,12 @@ window.location.replace('task32.php');
 	?>
 	
 
-
+<br><br>
 
 
      <p class= "w3-center">
 	
-	A. Delete all the Bryanston patients from the Gauteng_Treatments table that have Blood Type B. (Hint: you’ll first need to find the PatientID of the Bryanston patients with Blood Type B, and then use this PatientID in your WHERE condition)
+ Delete all the Bryanston patients from the Gauteng_Treatments table that have Blood Type B. (Hint: you’ll first need to find the PatientID of the Bryanston patients with Blood Type B, and then use this PatientID in your WHERE condition)
 
  
  <br>
@@ -491,7 +494,7 @@ function myFunction() {
 }
 
 function myFunction1() {
-  alert("INSERT INTO Gauteng_Patients (PatientID,CodeName,AgeGroup,OtherDiseases,Suburb) VALUES (22,'BY','40-50','No','Bryanston')");
+  alert("DELETE FROM Gauteng_Treatments WHERE PatientID = 21");
 }
 </script>
 
